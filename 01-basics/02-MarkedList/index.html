@@ -12,17 +12,12 @@
 <body>
 
 <div id="app">
-  <input type="text" />
+  <input type="text" v-model="search"/>
   <ul>
-    <li>Email</li>
-    <li class="marked">Email</li>
-    <li class="marked">Email</li>
-    <li>Email</li>
-    <li>Email</li>
-    <li>...</li>
-  </ul>
+    <li v-for="email in searchResult" :class="{marked: email.active}">{{email.name}}</li>    
+  </ul>  
 </div>
 
-<script type="module" src="script.js"></script>
+<script type="module" src="02-MarkedList/script.js"></script>
 </body>
 </html>
