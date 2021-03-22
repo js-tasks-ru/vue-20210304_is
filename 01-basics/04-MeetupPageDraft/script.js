@@ -44,4 +44,10 @@ const getAgendaItemIcons = () => ({
   other: 'cal-sm',
 });
 
-new Vue();
+const app = new Vue({
+  data() {
+    return {
+      hello: 'world'
+    }
+  }
+}).$mount('#app');
