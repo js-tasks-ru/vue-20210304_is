@@ -45,9 +45,43 @@ const getAgendaItemIcons = () => ({
 });
 
 const app = new Vue({
+  mounted() {
+    fetch(`${API_URL}/meetups/${MEETUP_ID}`)
+    .then(res => res.json())
+    .then(data => this.meetup = data);    
+  },
+
+
   data() {
     return {
-      hello: 'world'
+      meetup: null
     }
+  },
+
+  computed: {
+    currentMeetup() {
+      return {
+        ...this.meetup,
+        backImage: this.meetup.imageId ? getImageUrlByImageId(this.meetup.imageId) : null,
+        localDate: new Date(this.meetup.date).toLocaleString(navigator.language, {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+        }),
+              
+      }
+    },
+
+    currentMeetupAgenda() {
+      return this.meetup.agenda.map((agenda) => ({
+        ...agenda,
+        icon:  `/src/assets/icons/icon-${getAgendaItemIcons()[agenda.type]}.svg`,
+        title: agenda.title || getAgendaItemDefaultTitles()[agenda.type],
+        timeline: `${agenda.startsAt} - ${agenda.endsAt}`
+      }));
+    }
+
   }
+
+  
 }).$mount('#app');
