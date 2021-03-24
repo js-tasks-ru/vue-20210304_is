@@ -1,7 +1,9 @@
 export default {
   name: 'MeetupDescription',
 
-  // Входные параметры
+  props: {
+    description: String
+  },
 
-  template: `<p class="meetup-description">Описание должно быть здесь</p>`,
+  template: `<p class="meetup-description">{{description}}</p>`,
 };
