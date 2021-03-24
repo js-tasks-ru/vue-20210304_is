@@ -6,7 +6,7 @@ export default {
   props: {
     agendaItem: {
       type: Object,
-      reauired: true
+      required: true
     }
   },
 
