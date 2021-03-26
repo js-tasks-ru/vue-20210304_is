@@ -6,12 +6,12 @@ export default {
   props: {
     agenda: {
       type: Array,
-      required: true
-    }
+      required: true,
+    },
   },
 
   components: {
-    MeetupAgendaItem
+    MeetupAgendaItem,
   },
 
   template: `

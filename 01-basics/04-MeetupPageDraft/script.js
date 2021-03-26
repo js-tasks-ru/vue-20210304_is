@@ -45,17 +45,10 @@ const getAgendaItemIcons = () => ({
 });
 
 const app = new Vue({
-  mounted() {
-    fetch(`${API_URL}/meetups/${MEETUP_ID}`)
-    .then(res => res.json())
-    .then(data => this.meetup = data);    
-  },
-
-
   data() {
     return {
-      meetup: null
-    }
+      meetup: null,
+    };
   },
 
   computed: {
@@ -68,20 +61,22 @@ const app = new Vue({
           month: 'long',
           day: 'numeric',
         }),
-              
-      }
+      };
     },
 
     currentMeetupAgenda() {
       return this.meetup.agenda.map((agenda) => ({
         ...agenda,
-        icon:  `/src/assets/icons/icon-${getAgendaItemIcons()[agenda.type]}.svg`,
+        icon: `/src/assets/icons/icon-${getAgendaItemIcons()[agenda.type]}.svg`,
         title: agenda.title || getAgendaItemDefaultTitles()[agenda.type],
-        timeline: `${agenda.startsAt} - ${agenda.endsAt}`
+        timeline: `${agenda.startsAt} - ${agenda.endsAt}`,
       }));
-    }
+    },
+  },
 
-  }
-
-  
+  mounted() {
+    fetch(`${API_URL}/meetups/${MEETUP_ID}`)
+      .then((res) => res.json())
+      .then((data) => (this.meetup = data));
+  },
 }).$mount('#app');

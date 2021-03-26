@@ -30,33 +30,29 @@ const emails = [
   'Isaias_Kuhic@jarrett.net',
 ];
 
-
 const app = new Vue({
-  data(){
+  data() {
     return {
       hello: 'world',
       emails: emails,
-      search: ''
-    }
+      search: '',
+    };
   },
 
   computed: {
     searchResult() {
-      if(!this.emails) {
-        return null
+      if (!this.emails) {
+        return null;
       }
       let result = [];
 
-      this.emails.forEach(el => {
-        result.push(
-          {
-            name: el,
-            active: el.toLowerCase().includes(this.search.toLowerCase()),
-          }
-        )
+      this.emails.forEach((el) => {
+        result.push({
+          name: el,
+          active: el.toLowerCase().includes(this.search.toLowerCase()),
+        });
       });
-      return result      
-    },  
-    
-  }
+      return result;
+    },
+  },
 }).$mount('#app');

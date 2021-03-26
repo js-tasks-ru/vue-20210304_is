@@ -10,24 +10,24 @@ export default {
   props: {
     meetup: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
 
   components: {
     MeetupCover,
     MeetupDescription,
     MeetupAgenda,
-    MeetupInfo
+    MeetupInfo,
   },
 
   computed: {
-    backImage() { 
-      return this.meetup.imageId ? getImageUrlByImageId(this.meetup.imageId) : null
+    backImage() {
+      return this.meetup.imageId ? getImageUrlByImageId(this.meetup.imageId) : null;
     },
     makeDateType() {
-      return new Date(this.meetup.date)
-    }
+      return new Date(this.meetup.date);
+    },
   },
 
   template: `

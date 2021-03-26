@@ -3,17 +3,15 @@ export default {
 
   props: {
     link: String,
-    title: String
+    title: String,
   },
 
   computed: {
-
     bgCover() {
       if (this.link) {
-        return `--bg-url: url('${this.link}')`
+        return `--bg-url: url('${this.link}')`;
       }
-    }
-    
+    },
   },
 
   template: `
