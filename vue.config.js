@@ -29,7 +29,6 @@ function discoverVueServeTasksDirs(rootDir = __dirname) {
   const getSubDirs = (dir) => fs.readdirSync(dir).filter((name) => isDir(path.join(dir, name)));
   const isModuleOrTaskDir = (dirname) => /^\d+-/.test(dirname);
   const isVueTaskDir = (dir) => fs.existsSync(getTaskFile(dir, 'App.vue'));
-  const readDirTitle = (dir) => fs.readFileSync(path.join(dir, 'README.md'), 'utf8').split('\n')[0].substr(2);
 
   return getSubDirs(rootDir)
     .filter(isModuleOrTaskDir)
@@ -48,8 +47,11 @@ function discoverVueServeTasksDirs(rootDir = __dirname) {
         .map((taskDir) => ({
           module: moduleDir.dirname,
           task: taskDir.dirname,
+<<<<<<< HEAD
           moduleTitle: moduleDir.dirname,
           taskTitle: readDirTitle(getTaskDir(taskDir.path)),
+=======
+>>>>>>> 633e566af2322ade2f2777b69350eb7fbc51e48e
         })),
     );
 }
@@ -62,11 +64,11 @@ function discoverVueServeTasksDirs(rootDir = __dirname) {
  * @return {Object} pages config for vue.config.js
  */
 function generatePagesConfig(taskList) {
-  return taskList.reduce((pages, { module, task, taskTitle }) => {
+  return taskList.reduce((pages, { module, task }) => {
     pages[`${module}/${task}`] = {
       template: './src/index.html',
       entry: getTaskFile(`./${module}/${task}`, 'main.js'),
-      title: taskTitle,
+      title: task,
     };
     return pages;
   }, {});
