@@ -48,7 +48,7 @@ function discoverVueServeTasksDirs(rootDir = __dirname) {
         .map((taskDir) => ({
           module: moduleDir.dirname,
           task: taskDir.dirname,
-          moduleTitle: readDirTitle(moduleDir.path),
+          moduleTitle: moduleDir.dirname,
           taskTitle: readDirTitle(getTaskDir(taskDir.path)),
         })),
     );
