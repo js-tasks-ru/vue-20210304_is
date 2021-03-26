@@ -13,7 +13,7 @@
 
 import ToasterItem from './ToasterItem';
 
-//const DELAY = 5000;
+const DELAY = 5000;
 
 export default {
   name: 'TheToaster',
@@ -26,15 +26,6 @@ export default {
     }
   },
 
-  watch: {
-    toasts() {
-      if(this.toasts.length > 0) {
-        setTimeout(this.toasts.splice(1, 1), 2000);
-        
-      }
-    }
-  },
-
   methods: {
     error(message) {
       this.toasts.push(
@@ -42,7 +33,8 @@ export default {
           title: message,
           success: false
         }
-      )
+      );
+      setTimeout(() => this.toasts.shift(), DELAY);
     },
 
     success(message) {     
@@ -51,7 +43,8 @@ export default {
           title: message,
           success: true
         }
-      )
+      );
+      setTimeout(() => this.toasts.shift(), DELAY);
     },
   },
 };
