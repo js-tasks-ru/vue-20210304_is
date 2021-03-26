@@ -47,11 +47,6 @@ function discoverVueServeTasksDirs(rootDir = __dirname) {
         .map((taskDir) => ({
           module: moduleDir.dirname,
           task: taskDir.dirname,
-<<<<<<< HEAD
-          moduleTitle: moduleDir.dirname,
-          taskTitle: readDirTitle(getTaskDir(taskDir.path)),
-=======
->>>>>>> 633e566af2322ade2f2777b69350eb7fbc51e48e
         })),
     );
 }
