@@ -5,6 +5,7 @@
       :key="toast.title"
       :title="toast.title"
       :success="toast.success"
+      :type="toast.type"
     />
   </div>
 </template>
@@ -31,17 +32,19 @@ export default {
       this.toasts.push(
         {
           title: message,
-          success: false
+          success: false,
+          type: 'error'
         }
       );
       setTimeout(() => this.toasts.shift(), DELAY);
     },
 
-    success(message) {     
+    success(message) {
       this.toasts.push(
         {
           title: message,
-          success: true
+          success: true,
+          type: 'success'
         }
       );
       setTimeout(() => this.toasts.shift(), DELAY);

@@ -1,6 +1,6 @@
 <template>
-    <div class="toast" :class="[success ? 'toast_success' : 'toast_error']">
-      <app-icon :icon="iconText" />
+    <div class="toast" :class="iconText.class">
+      <app-icon :icon="iconText.icon" />
       <span>{{title}}</span>
     </div>
 </template>
@@ -13,16 +13,33 @@ export default ({
 
     props: {
         title: String,
-        success: Boolean
+        success: Boolean,
+        type: {
+            type: String,
+            required: true,
+            default: 'alert-circle'
+        }
     },
 
     computed: {
         iconText() {
-            if(!this.success) {
-                return 'alert-circle'
+            if(this.type === 'error') {
+                return {
+                    icon: 'alert-circle',
+                    class: 'toast_error'
+                }
             }
 
-            return 'check-circle'            
+            if(this.type === 'success') {
+                return {
+                    icon: 'check-circle',
+                    class: 'toast_success'
+                }
+            }
+
+            return null
+
+                      
         }
     }
     
