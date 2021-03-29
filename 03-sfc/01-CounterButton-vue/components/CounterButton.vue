@@ -8,7 +8,7 @@
 export default {
   model: {
     prop: 'count',
-    event: 'click',
+    event: 'change',
   },
 
   props: {
