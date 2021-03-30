@@ -12,12 +12,10 @@ export default ({
     components: { AppIcon },
 
     props: {
-        title: String,
-        success: Boolean,
+        title: String,      
         type: {
             type: String,
-            required: true,
-            default: 'alert-circle'
+            required: true,            
         }
     },
 

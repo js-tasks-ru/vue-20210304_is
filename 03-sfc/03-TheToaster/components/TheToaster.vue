@@ -3,8 +3,7 @@
     <toaster-item 
       v-for="toast in toasts"
       :key="toast.title"
-      :title="toast.title"
-      :success="toast.success"
+      :title="toast.title"   
       :type="toast.type"
     />
   </div>
@@ -31,8 +30,7 @@ export default {
     error(message) {
       this.toasts.push(
         {
-          title: message,
-          success: false,
+          title: message,    
           type: 'error'
         }
       );
@@ -42,8 +40,7 @@ export default {
     success(message) {
       this.toasts.push(
         {
-          title: message,
-          success: true,
+          title: message, 
           type: 'success'
         }
       );
