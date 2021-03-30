@@ -4,16 +4,16 @@ export default {
   props: {
     organizer: {
       type: String,
-      required: true
+      required: true,
     },
     place: {
       type: String,
-      required: true
+      required: true,
     },
     date: {
       type: Date,
-      required: true
-    }
+      required: true,
+    },
   },
 
   computed: {
@@ -22,16 +22,16 @@ export default {
         year: 'numeric',
         month: 'long',
         day: 'numeric',
-      })
+      });
 
-      return result
+      return result;
     },
 
     localDateAttribute() {
       let result = new Date(this.date).toISOString().split('T')[0];
 
-      return result
-    }
+      return result;
+    },
   },
 
   template: `

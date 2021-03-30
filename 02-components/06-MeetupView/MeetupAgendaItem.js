@@ -6,20 +6,20 @@ export default {
   props: {
     agendaItem: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
 
   computed: {
     agendaTitle() {
-      return this.agendaItem.title || getAgendaItemDefaultTitles()[this.agendaItem.type]
+      return this.agendaItem.title || getAgendaItemDefaultTitles()[this.agendaItem.type];
     },
     agendaTimeLine() {
-      return `${this.agendaItem.startsAt} - ${this.agendaItem.endsAt}`
+      return `${this.agendaItem.startsAt} - ${this.agendaItem.endsAt}`;
     },
     agendaIcons() {
-      return `/assets/icons/icon-${getAgendaItemIcons()[this.agendaItem.type]}.svg`
-    }
+      return `/assets/icons/icon-${getAgendaItemIcons()[this.agendaItem.type]}.svg`;
+    },
   },
 
   template: `<div class="meetup-agenda__item">
