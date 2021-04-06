@@ -16,7 +16,7 @@ export default {
     return {
       tabs: [
         { to: '/a', text: 'Page A' },
-        { to: { name: 'b' }, text: 'Page B' },
+        { to: { name: 'b' }, text: 'Page B' }        
       ],
 
       prop: 'Prop Data',
